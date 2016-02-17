@@ -10,11 +10,11 @@ describe('citeproc-js', function () {
         var style  = './styles/chicago-fullnote-bibliography.csl';
         var locale = './locales/locales-nb-NO.xml';
 
-        var cite = new Citeproc(citations, style, locale, function (citeproc) {
+        var cite = new Citeproc(citations, style, locale, function (err, citeproc) {
             citeproc.updateItems(Object.keys(citations));
             var bibliography = citeproc.makeBibliography();
             console.log(bibliography);
-            done();
+            done(err);
         });
     });
 });
